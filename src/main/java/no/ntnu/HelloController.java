@@ -1,4 +1,4 @@
-package com.example.nettworkapp;
+package no.ntnu;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
