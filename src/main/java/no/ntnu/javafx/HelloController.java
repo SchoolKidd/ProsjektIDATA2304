@@ -1,4 +1,4 @@
-package no.ntnu;
+package no.ntnu.javafx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

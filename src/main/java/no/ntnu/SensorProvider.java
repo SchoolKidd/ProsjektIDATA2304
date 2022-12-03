@@ -10,17 +10,13 @@ import no.ntnu.sensors.RoomTemperatureSensor;
 public class SensorProvider {
     private final RoomTemperatureSensor temperatureSensor = new RoomTemperatureSensor();
     private final RoomHumiditySensor humiditySensor = new RoomHumiditySensor();
-
-    private SensorProvider() {
-
-    }
-
     private static final SensorProvider instance = new SensorProvider();
 
     /**
      * @return Get a singleton instance of the class
      */
-    public static SensorProvider getInstance() {
+    public static SensorProvider getInstance()
+    {
         return instance;
     }
 
@@ -29,7 +25,8 @@ public class SensorProvider {
      *
      * @return Temperature sensor instance
      */
-    public Sensor getTemperatureSensor() {
+    public Sensor getTemperatureSensor()
+    {
         return temperatureSensor;
     }
 
@@ -38,7 +35,8 @@ public class SensorProvider {
      *
      * @return Humidity sensor instance
      */
-    public Sensor getHumiditySensor() {
+    public Sensor getHumiditySensor()
+    {
         return humiditySensor;
     }
 }

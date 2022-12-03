@@ -51,10 +51,12 @@ public abstract class BoundedSensor implements Sensor {
      */
     private double generateRandomDelta() {
         double maxDelta = (max - min) / 50.0;
-        return randomGenerator.nextDouble(-maxDelta, maxDelta);
+        return -maxDelta*randomGenerator.nextDouble()+maxDelta;
+        //TODO - Doublecheck that this logic works
     }
 
-    private boolean isCurrentValueOutOfBoundaries() {
+    private boolean isCurrentValueOutOfBoundaries()
+    {
         return currentValue > max || currentValue < min;
     }
 
@@ -65,14 +67,5 @@ public abstract class BoundedSensor implements Sensor {
                 .setScale(1, RoundingMode.HALF_UP)
                 .doubleValue();
     }
-
-      /**
-     * Manages a collection of all available sensors
-     * package no.ntnu;
-     *
-     * import no.ntnu.sensors.RoomHumiditySensor;
-     * import no.ntnu.sensors.Sensor;
-     * import no.ntnu.sensors.RoomTemperatureSensor;
-     */
 
 }

@@ -50,12 +50,16 @@ private void initializeSensors() throws IllegalStateException {
 
 private void readAllSensors() {
     System.out.println("Reading sensor data...");
-    lastTemperatureReading =temperatureSensor.readValue();
+    lastTemperatureReading = temperatureSensor.readValue();
     lastHumidityReading = humiditySensor.readValue();
 }
 
 private void sendDataToServer() {
     //TODO implement sensor data sending to the server
+}
+
+private void ReceiveDataFromServer() {
+    //TODO implement sensor data
 }
 
 private void powerNap() {
