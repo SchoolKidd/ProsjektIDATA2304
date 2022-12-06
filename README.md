@@ -150,7 +150,7 @@ it ended up serving as a spectator panel for the value readings from the sensors
 ***
 
 ### The application
-![](src/main/resources/application.png)
+![](src/main/application.png)
 The application works by starting the sensors.
 * Once the sensors are started up you can press the humidity button to display the current humidity in the room with the graph.
 * You can also press the temperature button and visually display the temperature in the room currently.
