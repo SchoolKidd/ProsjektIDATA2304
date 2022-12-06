@@ -5,8 +5,8 @@ package no.ntnu.sensors;
  */
 public class RoomHumiditySensor extends BoundedSensor {
     private static final double NORMAL_ROOM_HUMIDITY = 50;
-    private  static final double MIN_ROOM_HUMIDITY = 30;
-    private static final double MAX_ROOM_HUMIDITY = 70;
+    private  static final double MIN_ROOM_HUMIDITY = 40;
+    private static final double MAX_ROOM_HUMIDITY = 60;
 
 /**
  * Create a sensor which will imitate humidity readings within a room

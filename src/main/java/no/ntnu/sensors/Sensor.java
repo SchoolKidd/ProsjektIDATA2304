@@ -7,6 +7,7 @@ package no.ntnu.sensors;
     public interface Sensor {
         /**
          * Read the current value of the sensor
+         *
          * @return the current sensor value
          */
         double readValue();

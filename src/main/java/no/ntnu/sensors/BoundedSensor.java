@@ -5,7 +5,6 @@ package no.ntnu.sensors;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Random;
-import no.ntnu.server.MqttPublisher;
 
 /**
  * Provides sensor values within a given range
@@ -32,6 +31,7 @@ public abstract class BoundedSensor implements Sensor{
 
     /**
      * Reads the current value
+     *
      * @return the current value
      */
     @Override
@@ -59,7 +59,7 @@ public abstract class BoundedSensor implements Sensor{
      */
     private double generateRandomDelta() {
         double maxDelta = (max - min) / 50.0;
-        return -maxDelta*randomGenerator.nextDouble()+maxDelta;
+        return randomGenerator.nextDouble()-maxDelta+maxDelta;
         //TODO - Doublecheck that this logic works
     }
 

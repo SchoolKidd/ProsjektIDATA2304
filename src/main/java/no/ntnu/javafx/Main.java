@@ -1,4 +1,6 @@
-package no.ntnu;
+package no.ntnu.javafx;
+
+import no.ntnu.App;
 
 /**
  * Main entrypoint for the application
@@ -13,9 +15,11 @@ public class Main {
         App app = new App();
         try{
             app.run();
+
         } catch (Exception e) {
             System.out.println("oops: " + e.getMessage());
         }
         System.out.println("Application finished");
     }
+
 }

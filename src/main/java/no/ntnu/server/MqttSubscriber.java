@@ -123,12 +123,12 @@ public class MqttSubscriber implements  MqttCallback {
     {
         String message = new String(messageMQTT.getPayload());
 
-        SecretKey key = EncryptionDecryption.getKeyFromPassword("projectpassword", "thesalt");
+        SecretKey key = EncryptionDecryption.getKeyFromPassword("password1", "19283764");
         String algorithm = EncryptionDecryption.algorithm;
 
         String plainText = EncryptionDecryption.decrypt(algorithm, message, key, ivP);
 
-        System.out.println("Reveived from broker - topic: " + topic);
+        System.out.println("Received from broker - topic: " + topic);
         System.out.println("Message " + message);
         System.out.println("Message decrypted " + plainText);
         System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");

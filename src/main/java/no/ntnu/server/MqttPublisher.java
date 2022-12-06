@@ -92,7 +92,7 @@ public class MqttPublisher {
     public void publishMessageToBroker(String message) {
         try {
             //encryption
-            SecretKey key = EncryptionDecryption.getKeyFromPassword("projectpassword", "thesalt");
+            SecretKey key = EncryptionDecryption.getKeyFromPassword("password1", "19283764");
             String algorithm = EncryptionDecryption.algorithm;
 
             String cipherText = EncryptionDecryption.encrypt(algorithm, message, key, ivP);

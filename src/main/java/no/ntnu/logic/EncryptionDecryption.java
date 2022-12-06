@@ -25,30 +25,23 @@ public class EncryptionDecryption {
     /**
      *  Test to see if the encryption and decryption work thourougly
      *
-     * @param args executes the code
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidKeySpecException
-     * @throws InvalidAlgorithmParameterException
-     * @throws NoSuchPaddingException
-     * @throws IllegalBlockSizeException
-     * @throws BadPaddingException
-     * @throws InvalidKeyException
-     */
-    public static void main(String[] args)
-            throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException,
-            NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
-        String input = "2164512";
-
-        SecretKey key = EncryptionDecryption.getKeyFromPassword("idataproject", "password");
-        IvParameterSpec ivP = EncryptionDecryption.generateIvp();
-
-        String algorithm = EncryptionDecryption.algorithm;
-        String cipherText = EncryptionDecryption.encrypt(algorithm, input, key, ivP);
-        String plainText = EncryptionDecryption.decrypt(algorithm, cipherText, key,
-                ivP);
-        System.out.println(cipherText);
-        System.out.println(plainText);
-    }
+     *
+   * public static void main(String[] args)
+   *         throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException,
+   *         NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+   *     String input = "2164512";
+    *
+    *    SecretKey key = EncryptionDecryption.getKeyFromPassword("idataproject", "password");
+    *    IvParameterSpec ivP = EncryptionDecryption.generateIvp();
+    *
+    *    String algorithm = EncryptionDecryption.algorithm;
+    *    String cipherText = EncryptionDecryption.encrypt(algorithm, input, key, ivP);
+    *    String plainText = EncryptionDecryption.decrypt(algorithm, cipherText, key,
+    *            ivP);
+    *    System.out.println(cipherText);
+    *    System.out.println(plainText);
+     *}
+    */
 
     /**
      * Takes a String and encrypts it using an byte array.
@@ -57,12 +50,6 @@ public class EncryptionDecryption {
      * @param key secretkey derived from PBKDF2
      * @param iv a pseudo random value
      * @return the encrypted String
-     * @throws NoSuchPaddingException
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidAlgorithmParameterException
-     * @throws InvalidKeyException
-     * @throws BadPaddingException
-     * @throws IllegalBlockSizeException
      */
     public static String encrypt(String algorithm, String input, SecretKey key, IvParameterSpec iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
@@ -81,12 +68,6 @@ public class EncryptionDecryption {
      * @param key secretkey needed for decryption using symmetric key
      * @param iv a pseudo random value
      * @return the decrypted String
-     * @throws NoSuchPaddingException
-     * @throws NoSuchAlgorithmException
-     * @throws InvalidAlgorithmParameterException
-     * @throws InvalidKeyException
-     * @throws BadPaddingException
-     * @throws IllegalBlockSizeException
      */
     public static String decrypt(String algorithm, String cipherText, SecretKey key,
                                  IvParameterSpec iv)
