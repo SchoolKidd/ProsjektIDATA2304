@@ -22,10 +22,22 @@ import java.util.Base64;
 public class EncryptionDecryption {
     public static final String algorithm = "AES/CBC/PKCS5Padding";
 
+    /**
+     *  Test to see if the encryption and decryption work thourougly
+     *
+     * @param args executes the code
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidKeySpecException
+     * @throws InvalidAlgorithmParameterException
+     * @throws NoSuchPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws BadPaddingException
+     * @throws InvalidKeyException
+     */
     public static void main(String[] args)
             throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException,
             NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
-        String input = "baeldung";
+        String input = "2164512";
 
         SecretKey key = EncryptionDecryption.getKeyFromPassword("idataproject", "password");
         IvParameterSpec ivP = EncryptionDecryption.generateIvp();
@@ -38,6 +50,20 @@ public class EncryptionDecryption {
         System.out.println(plainText);
     }
 
+    /**
+     * Takes a String and encrypts it using an byte array.
+     * @param algorithm String value defined earlier
+     * @param input gets bytes from defined input
+     * @param key secretkey derived from PBKDF2
+     * @param iv a pseudo random value
+     * @return the encrypted String
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public static String encrypt(String algorithm, String input, SecretKey key, IvParameterSpec iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
@@ -48,6 +74,20 @@ public class EncryptionDecryption {
         return Base64.getEncoder().encodeToString(cipherText);
     }
 
+    /**
+     * decrypt the encrypted String back into readable format
+     * @param algorithm String value defined earlier
+     * @param cipherText encrypted text from encryption
+     * @param key secretkey needed for decryption using symmetric key
+     * @param iv a pseudo random value
+     * @return the decrypted String
+     * @throws NoSuchPaddingException
+     * @throws NoSuchAlgorithmException
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     */
     public static String decrypt(String algorithm, String cipherText, SecretKey key,
                                  IvParameterSpec iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,

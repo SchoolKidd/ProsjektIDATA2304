@@ -1,5 +1,8 @@
 package no.ntnu.sensors;
 
+/**
+ * Imitates a temperature sensor for a bedroom
+ */
 public class RoomTemperatureSensor extends BoundedSensor{
     private static final double NORMAL_ROOM_TEMPERATURE = 23.3;
     private static final double MIN_ROOM_TEMPERATURE = 18;

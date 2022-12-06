@@ -20,6 +20,9 @@ import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.eclipse.paho.client.mqttv3.MqttException;
 import org.eclipse.paho.client.mqttv3.MqttMessage;
 
+/**
+ * Establish connection and receives the files from the MQTT broker
+ */
 public class MqttSubscriber implements  MqttCallback {
 
     private final String topic;
@@ -72,6 +75,9 @@ public class MqttSubscriber implements  MqttCallback {
     }
 
 
+    /**
+     * Starts the client
+     */
     public void startClient() {
         try {
             client = new MqttClient(broker, clientID, new MemoryPersistence());
@@ -92,6 +98,10 @@ public class MqttSubscriber implements  MqttCallback {
     }
 
 
+    /**
+     * Informs the user if connection is lost
+     * @param throwable the reason behind the loss of connection.
+     */
     @Override
     public void connectionLost(Throwable throwable) {
         System.out.println("lost connection" + throwable);
@@ -101,6 +111,11 @@ public class MqttSubscriber implements  MqttCallback {
         this.ivP = ivP;
     }
 
+    /**
+     *  Confirms the arrival of the message, also deals with encryption and decryption
+     * @param topic name of the topic on the message was published to
+     * @param messageMQTT the actual message.
+     */
     @Override
     public void messageArrived(String topic, MqttMessage messageMQTT)
             throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException,
@@ -122,22 +137,42 @@ public class MqttSubscriber implements  MqttCallback {
         //this.data.add(Double.parseDouble(plainText));
     }
 
+    /**
+     * Notifies the user when the delivery is complete
+     * @param DeliveryToken the delivery token associated with the message.
+     */
     public void deliveryComplete(IMqttDeliveryToken DeliveryToken) {
         System.out.println("dataReceived: " + DeliveryToken);
     }
 
+    /**
+     * disconnects the client.
+     * @throws MqttException
+     */
     public void disconnectClient() throws MqttException {
         this.client.disconnect();
     }
 
+    /**
+     * getter for client ID
+     * @return clientID
+     */
     public String getClientID() {
         return clientID;
     }
 
+    /**
+     * getter for data
+     * @return data
+     */
     public List<Double> getData() {
         return this.data;
     }
 
+    /**
+     * getter for topic
+     * @return topic
+     */
     public String getTopic() {
         return topic;
     }

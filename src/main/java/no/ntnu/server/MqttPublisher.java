@@ -19,7 +19,7 @@ import org.eclipse.paho.client.mqttv3.MqttMessage;
 
 
 /**
- * The mqtt publisher class will be responsible for publishing the data to the broker, making sure the topics are correct.
+ * The mqtt publisher class will be responsible for establishing a connection and publishing the data to the broker, making sure the topics are correct.
  */
 public class MqttPublisher {
     private final String topic;
@@ -32,7 +32,11 @@ public class MqttPublisher {
     private IvParameterSpec ivP;
 
     /**
-     * Creates the client that will send the data to the public Mqtt Broker.
+     *  Creates the client that will send the data to the public Mqtt Broker.
+     * @param topic Topic on the broker
+     * @param broker the broker -> connects
+     * @param sensorID The client identification
+     * @param qos Quality of service
      */
     public MqttPublisher(String topic, String broker, String sensorID, int qos) {
         this.topic = topic;

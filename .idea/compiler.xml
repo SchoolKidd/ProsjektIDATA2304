@@ -8,6 +8,8 @@
         <outputRelativeToContentRoot value="true" />
         <module name="networkproject" />
         <module name="ProsjektIDATA2304" />
+        <module name="ProsjektIDATA2304 test" />
+        <module name="ProsjektIDATA2304 - 2nd iteration" />
       </profile>
     </annotationProcessing>
   </component>
